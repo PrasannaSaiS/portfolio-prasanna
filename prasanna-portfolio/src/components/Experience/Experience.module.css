@@ -1,0 +1,162 @@
+/* ═══════════════════════════════════════════════
+   Experience.module.css
+   ═══════════════════════════════════════════════ */
+
+.section {
+  padding: var(--section-gap) var(--gutter);
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  margin-bottom: var(--sp-6);
+}
+
+/* ── Timeline Layout ──────────────────────────── */
+.timelineContainer {
+  position: relative;
+  display: flex;
+  gap: var(--sp-6);
+  padding-left: 10px; /* space for the line */
+}
+
+.timelineLine {
+  position: absolute;
+  left: 13px; /* 10px padding + 3px center of dot */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0.5;
+  transform-origin: top;
+  /* limit line height so it doesn't run all the way down */
+  height: 70%;
+}
+
+.timelineDot {
+  position: absolute;
+  left: 10px;
+  top: 8px; /* align with first line of text */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg-surface);
+}
+
+/* ── Content ──────────────────────────────────── */
+.contentCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  padding-left: var(--sp-4);
+}
+
+/* ── Header Row ───────────────────────────────── */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.role {
+  font: 700 var(--text-2xl) / 1.2 var(--font-display);
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--sp-1);
+}
+
+.companyRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font: 500 var(--text-base) / 1 var(--font-body);
+}
+
+.company {
+  color: var(--accent);
+}
+
+.separator {
+  color: var(--text-3);
+}
+
+.period {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+/* ── Company Logo ─────────────────────────────── */
+.logoWrap {
+  height: 60px;
+  width: auto;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Specific styling for the ImageSlot wrapper inside this context */
+.logoWrap :global(.image-slot) {
+  filter: grayscale(100%) opacity(0.7);
+  transition: filter var(--duration-mid) var(--ease-out-expo);
+  object-fit: contain;
+  height: 100%;
+}
+
+.logoWrap:hover :global(.image-slot) {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* ── Bullets ──────────────────────────────────── */
+.bulletsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  max-width: 800px;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.bulletDot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-3);
+  margin-top: 10px;
+}
+
+.bulletText {
+  font: 400 var(--text-base) / 1.6 var(--font-body);
+  color: var(--text-2);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 768px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .logoWrap {
+    justify-content: flex-start;
+    height: 40px;
+    margin-top: var(--sp-2);
+  }
+}

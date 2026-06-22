@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════
+   Skills.module.css
+   ═══════════════════════════════════════════════ */
+
+.section {
+  padding: var(--section-gap) var(--gutter);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  margin-bottom: var(--sp-8);
+}
+
+/* ── Groups Grid ──────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-9);
+  align-items: start;
+}
+
+/* ── Skill Group ──────────────────────────────── */
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.categoryName {
+  font: 600 var(--text-base) / 1 var(--font-body);
+  color: var(--text-1);
+}
+
+/* ── Tiles ────────────────────────────────────── */
+.tileGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.tile {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--sp-2) var(--sp-3);
+  font: 400 var(--text-sm) / 1 var(--font-mono);
+  color: var(--text-2);
+  cursor: default;
+  transition:
+    border-color var(--duration-fast) var(--ease-out-expo),
+    color        var(--duration-fast) var(--ease-out-expo);
+}
+
+.tile:hover {
+  border-color: rgba(124, 111, 247, 0.5); /* Accent with opacity */
+  color: var(--text-1);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+}

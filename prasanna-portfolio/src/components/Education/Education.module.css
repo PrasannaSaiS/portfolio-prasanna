@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════════
+   Education.module.css
+   ═══════════════════════════════════════════════ */
+
+.section {
+  padding: var(--section-gap) var(--gutter);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  margin-bottom: var(--sp-8);
+}
+
+/* ── Timeline ─────────────────────────────────── */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  padding-left: 14px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 0;
+  left: 3px;
+  width: 1px;
+  background: var(--border);
+}
+
+.entry {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ── Dot ──────────────────────────────────────── */
+.dot {
+  position: absolute;
+  left: -14px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-3);
+  box-shadow: 0 0 0 4px var(--bg-surface);
+  transition: background var(--duration-fast) var(--ease-out-expo);
+}
+
+.entry:hover .dot {
+  background: var(--accent);
+}
+
+/* ── Content ──────────────────────────────────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  width: 100%;
+}
+
+/* ── Header Row ───────────────────────────────── */
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.degree {
+  font: 600 var(--text-xl) / 1.3 var(--font-display);
+  color: var(--text-1);
+}
+
+.gradePill {
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
+/* ── Meta Row ─────────────────────────────────── */
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font: 400 var(--text-base) / 1.4 var(--font-body);
+}
+
+.institution {
+  color: var(--text-2);
+}
+
+.separator {
+  color: var(--text-3);
+}
+
+.period {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 600px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-2);
+  }
+}

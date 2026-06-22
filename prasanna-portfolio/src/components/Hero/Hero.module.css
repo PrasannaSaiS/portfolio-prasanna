@@ -1,0 +1,284 @@
+/* ═══════════════════════════════════════════════
+   Hero.module.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Section shell ────────────────────────────── */
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--sp-10) var(--gutter) var(--sp-9);
+  overflow: hidden;
+}
+
+/* ── Dot-grid background ──────────────────────── */
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle,
+      rgba(124, 111, 247, 0.06) 1px,
+      transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Content grid ─────────────────────────────── */
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  align-items: center;
+  gap: var(--sp-8);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Left — Text ──────────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+/* ── Status pill ──────────────────────────────── */
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font: 500 var(--text-sm) / 1 var(--font-body);
+  color: var(--text-1);
+  background: rgba(52, 152, 219, 0.08);
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  letter-spacing: 0.01em;
+}
+
+/* ── Name ─────────────────────────────────────── */
+.name {
+  font: 800 var(--text-hero) / 1.0 var(--font-display);
+  letter-spacing: -0.03em;
+  color: var(--text-1);
+  /* margin-right compensated inline per word */
+  word-spacing: -0.1em;
+  /* tighten gap between spans */
+  line-height: 1.0;
+}
+
+/* ── Roles line ───────────────────────────────── */
+.roles {
+  font: 500 var(--text-2xl) / 1.3 var(--font-body);
+  color: var(--text-2);
+}
+
+/* ── Tagline ──────────────────────────────────── */
+.tagline {
+  font: 400 var(--text-lg) / 1.7 var(--font-body);
+  color: var(--text-2);
+  max-width: 520px;
+}
+
+/* ── CTA group ────────────────────────────────── */
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  align-items: center;
+  margin-top: var(--sp-3);
+}
+
+/* Shared button base */
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  border-radius: var(--radius-pill);
+  padding: 14px 32px;
+  font: 600 var(--text-base) / 1 var(--font-body);
+  transition:
+    background-color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    color var(--duration-fast) var(--ease-out-expo),
+    opacity var(--duration-fast) var(--ease-out-expo);
+  white-space: nowrap;
+}
+
+/* Primary — filled */
+.ctaPrimary {
+  background: var(--accent);
+  color: white;
+  border: 1px solid transparent;
+}
+
+.ctaPrimary:hover {
+  background: #9080ff;
+}
+
+/* Secondary — outlined */
+.ctaSecondary {
+  background: transparent;
+  color: var(--text-1);
+  border: 1px solid var(--border-hover);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Right — Photo ────────────────────────────── */
+.photoCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Photo wrapper ────────────────────────────── */
+.photoWrapper {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-accent);
+  overflow: hidden;
+  margin: auto;
+  transition: transform 600ms var(--ease-spring);
+}
+
+.photoWrapper:hover {
+  transform: scale(1.02);
+}
+
+/* ── Accent orb ───────────────────────────────── */
+.accentOrb {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: var(--accent);
+  filter: blur(120px);
+  opacity: 0.12;
+  border-radius: 50%;
+  bottom: -40px;
+  right: -40px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Floating metric pill ─────────────────────── */
+.metricPill {
+  position: absolute;
+  bottom: 32px;
+  left: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.metricNumber {
+  font: 700 var(--text-xl) / 1 var(--font-display);
+  color: var(--accent);
+}
+
+.metricLabel {
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  color: var(--text-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Scroll indicator ─────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scrollText {
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scrollIndicator svg {
+  color: var(--text-3);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .textCol {
+    align-items: center;
+  }
+
+  .tagline {
+    max-width: 100%;
+  }
+
+  .ctaGroup {
+    justify-content: center;
+  }
+
+  .photoCol {
+    order: -1;
+    /* Photo above text on mobile */
+  }
+
+  .metricPill {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--sp-10) var(--gutter) var(--sp-10);
+    min-height: 100svh;
+  }
+
+  .name {
+    font-size: clamp(2.5rem, 10vw, var(--text-hero));
+  }
+
+  .roles {
+    font-size: var(--text-xl);
+  }
+
+  .photoWrapper {
+    width: 220px;
+    height: 300px;
+  }
+
+  .accentOrb {
+    width: 200px;
+    height: 200px;
+  }
+}

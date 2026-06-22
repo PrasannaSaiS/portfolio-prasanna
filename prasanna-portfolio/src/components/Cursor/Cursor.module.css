@@ -1,0 +1,43 @@
+/* ═══════════════════════════════════════════════
+   Cursor.module.css
+   Exact spec from blueprint Section 6
+   ═══════════════════════════════════════════════ */
+
+/* ── Dot — 8px, exact mouse position ─────────── */
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* ── Ring — 40px default, spring-delayed ─────── */
+.ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(124, 111, 247, 0.5);
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  will-change: transform, width, height;
+  /* background intentionally transparent */
+}
+
+/* ── Hide on touch devices ────────────────────── */
+@media (pointer: coarse) {
+  .dot,
+  .ring {
+    display: none;
+  }
+}

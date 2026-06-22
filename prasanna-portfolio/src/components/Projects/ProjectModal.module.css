@@ -1,0 +1,264 @@
+/* ═══════════════════════════════════════════════
+   ProjectModal.module.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Backdrop ─────────────────────────────────── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(8, 8, 16, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-5) var(--gutter);
+}
+
+/* ── Panel ────────────────────────────────────── */
+.panel {
+  position: relative;
+  width: 90vw;
+  max-width: 760px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-8);
+  /* Smooth custom scrollbar inside panel */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) transparent;
+}
+
+.panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: var(--radius-pill);
+}
+
+/* ── Close button ─────────────────────────────── */
+.closeBtn {
+  position: sticky;
+  top: 0;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-2);
+  cursor: pointer;
+  z-index: 10;
+  margin-left: var(--sp-5);
+  transition:
+    color        var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    background   var(--duration-fast) var(--ease-out-expo);
+}
+
+.closeBtn:hover {
+  color: var(--text-1);
+  border-color: var(--border-hover);
+  background: var(--bg-elevated);
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Header ───────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  clear: right; /* clear float from close button */
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.statusChip {
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  letter-spacing: 0.02em;
+}
+
+.chipLive {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--green);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.chipPublished {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.category {
+  color: var(--text-3);
+}
+
+.title {
+  font: 700 var(--text-4xl) / 1.15 var(--font-display);
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+.headline {
+  font: 500 var(--text-lg) / 1.4 var(--font-body);
+  color: var(--accent);
+}
+
+/* ── Project image ────────────────────────────── */
+.imageWrap {
+  width: 100%;
+  height: 280px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--sp-7);
+  border: 1px solid var(--border);
+}
+
+/* ── Case study body ──────────────────────────── */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+/* ── Case section ─────────────────────────────── */
+.caseSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.caseLabel {
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.caseText {
+  font: 400 var(--text-base) / 1.75 var(--font-body);
+  color: var(--text-2);
+}
+
+/* ── Architecture (monospaced block) ──────────── */
+.caseArch {
+  display: block;
+  font: 400 var(--text-sm) / 1.7 var(--font-mono);
+  color: var(--text-1);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-5);
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-left: 3px solid var(--accent);
+}
+
+/* ── Results list ─────────────────────────────── */
+.resultsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.resultsItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font: 400 var(--text-base) / 1.6 var(--font-body);
+  color: var(--text-2);
+}
+
+.bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: 8px; /* optical alignment with text */
+}
+
+/* ── Stack badges ─────────────────────────────── */
+.stackBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.badge {
+  font: 400 var(--text-xs) / 1 var(--font-mono);
+  color: var(--text-2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+}
+
+/* ── Links row ────────────────────────────────── */
+.linksRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font: 500 var(--text-sm) / 1 var(--font-body);
+  color: var(--text-2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  transition:
+    color        var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    background   var(--duration-fast) var(--ease-out-expo);
+}
+
+.link:hover {
+  color: var(--text-1);
+  border-color: var(--border-accent);
+  background: var(--accent-dim);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 600px) {
+  .panel {
+    padding: var(--sp-5);
+    border-radius: var(--radius-lg);
+  }
+
+  .title {
+    font-size: var(--text-3xl);
+  }
+
+  .imageWrap {
+    height: 200px;
+  }
+}

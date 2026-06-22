@@ -1,0 +1,234 @@
+/* ═══════════════════════════════════════════════
+   ProjectCard.module.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Card shell ───────────────────────────────── */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  will-change: transform;
+  transition:
+    border-color var(--duration-fast) var(--ease-out-expo);
+}
+
+/* ── Large card ───────────────────────────────── */
+.cardLarge .imageArea {
+  flex: 0 0 60%;
+}
+
+.cardLarge .title {
+  font: 700 var(--text-3xl) / 1.2 var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.cardLarge .summary {
+  -webkit-line-clamp: 3;
+}
+
+/* ── Medium card ──────────────────────────────── */
+.cardMedium .imageArea {
+  flex: 0 0 50%;
+}
+
+.cardMedium .title {
+  font: 700 var(--text-2xl) / 1.25 var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.cardMedium .summary {
+  -webkit-line-clamp: 2;
+}
+
+/* ── Image area ───────────────────────────────── */
+.imageArea {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Image zoom on card hover — triggered via ImageSlot's :global(.project-card):hover */
+
+/* ── Status chip ──────────────────────────────── */
+.chip {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  z-index: 1;
+  letter-spacing: 0.02em;
+  /* backdrop so chip is readable over any image */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.chipLive {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--green);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.chipPublished {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* ── Content area ─────────────────────────────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  gap: var(--sp-3);
+}
+
+/* ── Category ─────────────────────────────────── */
+.category {
+  color: var(--text-3);
+}
+
+/* ── Title ────────────────────────────────────── */
+.title {
+  /* size set per card variant above */
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* ── Headline (sub-title) ─────────────────────── */
+.headline {
+  font: 500 var(--text-sm) / 1.4 var(--font-body);
+  color: var(--accent);
+  margin-top: -var(--sp-1);
+}
+
+/* ── Summary ──────────────────────────────────── */
+.summary {
+  font: 400 var(--text-sm) / 1.65 var(--font-body);
+  color: var(--text-2);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* line-clamp set per card variant above */
+}
+
+/* ── Tech badges ──────────────────────────────── */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: auto;
+}
+
+.badge {
+  font: 400 var(--text-xs) / 1 var(--font-mono);
+  color: var(--text-2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  white-space: nowrap;
+  transition: border-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.badge:hover {
+  border-color: var(--border-hover);
+}
+
+.badgeMore {
+  color: var(--text-3);
+  border-style: dashed;
+}
+
+/* ── Footer row ───────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+}
+
+/* ── Metric chip ──────────────────────────────── */
+.metric {
+  font: 600 var(--text-xs) / 1 var(--font-mono);
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
+/* ── Links row ────────────────────────────────── */
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.linkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  color: var(--text-2);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  transition:
+    color        var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo);
+  white-space: nowrap;
+}
+
+.linkBtn:hover {
+  color: var(--text-1);
+  border-color: var(--border-hover);
+}
+
+/* Placeholder / fill-in URL styling */
+.linkBtnMissing {
+  color: var(--amber);
+  border-color: rgba(245, 158, 11, 0.3);
+  border-style: dashed;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ── Case study button ────────────────────────── */
+.caseStudyBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-2);
+  cursor: pointer;
+  transition:
+    color        var(--duration-fast) var(--ease-out-expo),
+    background   var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.caseStudyBtn:hover {
+  color: var(--text-1);
+  background: var(--accent-dim);
+  border-color: var(--border-accent);
+}

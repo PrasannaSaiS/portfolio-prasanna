@@ -1,0 +1,195 @@
+/* ═══════════════════════════════════════════════
+   About.module.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Section ──────────────────────────────────── */
+.section {
+  padding: var(--section-gap) var(--gutter);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ── Section label ────────────────────────────── */
+.sectionLabel {
+  margin-bottom: var(--sp-4);
+}
+
+/* ── Heading ──────────────────────────────────── */
+.heading {
+  font: 700 var(--text-4xl) / 1.2 var(--font-display);
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+  margin-bottom: var(--sp-8);
+  /* word spans are inline-block — gap via margin-right */
+}
+
+/* ── Two-column grid ──────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-9);
+  align-items: start;
+}
+
+/* ── LEFT — paragraphs ────────────────────────── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.paraBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.para {
+  font: 400 var(--text-base) / 1.8 var(--font-body);
+  color: var(--text-2);
+  padding: var(--sp-5) 0;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ── Quick-fact pills ─────────────────────────── */
+.pillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+}
+
+.factPill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 8px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-2);
+  white-space: nowrap;
+  transition:
+    border-color var(--duration-fast) var(--ease-out-expo),
+    color        var(--duration-fast) var(--ease-out-expo);
+}
+
+.factPill:hover {
+  border-color: var(--accent);
+  color: var(--text-1);
+}
+
+.factIcon {
+  color: var(--accent);
+}
+
+/* ── RIGHT — photo column ─────────────────────── */
+.rightCol {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ── Photo wrapper — rotated on desktop ────────── */
+.photoWrapper {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  rotate: 2deg;  /* subtle personality tilt */
+  border: 1px solid var(--border-accent);
+  will-change: transform;
+}
+
+/* ── Floating status card ─────────────────────── */
+.statusCard {
+  position: absolute;
+  bottom: -20px;
+  left: -24px;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.greenDot {
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+  /* Pulsing glow */
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  animation: pulse 2.5s ease-out infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  70%  { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);  }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);    }
+}
+
+.statusTitle {
+  font: 500 var(--text-xs) / 1 var(--font-body);
+  color: var(--text-3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.statusValue {
+  font: 600 var(--text-sm) / 1 var(--font-body);
+  color: var(--text-1);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .rightCol {
+    justify-content: center;
+  }
+
+  .photoWrapper {
+    rotate: 0deg;
+    width: 300px;
+    height: 300px;
+  }
+
+  .statusCard {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -24px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .photoWrapper {
+    width: 260px;
+    height: 260px;
+  }
+
+  .heading {
+    font-size: var(--text-3xl);
+  }
+}

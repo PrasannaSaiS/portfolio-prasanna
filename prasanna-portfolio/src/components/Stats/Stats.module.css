@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════
+   Stats.module.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Band ─────────────────────────────────────── */
+.section {
+  background: var(--bg-surface);
+  border-top:    1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px var(--gutter);
+}
+
+/* ── Grid — 4-col desktop ─────────────────────── */
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: 0; /* dividers provide visual gap */
+}
+
+/* ── Individual stat cell ─────────────────────── */
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-6);
+  text-align: center;
+}
+
+/* ── Number row ───────────────────────────────── */
+.statNumber {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  line-height: 1;
+}
+
+/* ── Value (count-up number) ──────────────────── */
+.statValue {
+  font: 800 clamp(2.5rem, 5vw, 3.5rem) / 1 var(--font-display);
+  /* gradient-text applied via utility class */
+}
+
+/* ── Suffix (+, %) ────────────────────────────── */
+.statSuffix {
+  font: 800 clamp(1.5rem, 3vw, 2rem) / 1 var(--font-display);
+  color: var(--accent);
+}
+
+/* ── Label ────────────────────────────────────── */
+.statLabel {
+  margin-top: var(--sp-1);
+  /* text-label + text-muted applied via utility classes */
+}
+
+/* ── Vertical divider ─────────────────────────── */
+.divider {
+  width: 1px;
+  height: 60px;
+  background: var(--border);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── Responsive — tablet + mobile ─────────────── */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px var(--gutter);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .divider {
+    display: none; /* hide vertical dividers on mobile */
+  }
+
+  .stat {
+    padding: var(--sp-5) var(--sp-4);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Remove bottom border on last two cells */
+  .stat:nth-child(5),
+  .stat:nth-child(6) {
+    border-bottom: none;
+  }
+
+  /* Add right border on left column */
+  .stat:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 480px) {
+  .statValue {
+    font-size: 2.2rem;
+  }
+
+  .statSuffix {
+    font-size: 1.4rem;
+  }
+}

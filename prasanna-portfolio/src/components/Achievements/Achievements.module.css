@@ -1,0 +1,203 @@
+/* ═══════════════════════════════════════════════
+   Achievements.module.css
+   ═══════════════════════════════════════════════ */
+
+.section {
+  padding: var(--section-gap) var(--gutter);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  margin-bottom: var(--sp-8);
+}
+
+/* ── 1. IEEE Research Card ────────────────────── */
+.ieeeCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  background: var(--gradient-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber); /* Amber accent left border */
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6) var(--sp-8);
+  margin-bottom: var(--sp-6);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) var(--ease-out-expo),
+    transform    var(--duration-fast) var(--ease-out-expo);
+}
+
+.ieeeCard:hover {
+  border-color: var(--border-hover);
+  border-left-color: var(--amber); /* keep amber */
+  transform: translateX(4px);
+}
+
+.ieeeContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.ieeeLabel {
+  color: var(--amber);
+}
+
+.ieeeTitle {
+  font: 600 var(--text-xl) / 1.3 var(--font-display);
+  color: var(--text-1);
+}
+
+.ieeeConf {
+  font: 400 var(--text-base) / 1.5 var(--font-body);
+  color: var(--text-2);
+}
+
+.ieeeLogo {
+  width: 100px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ieeeLogo :global(.image-slot) {
+  object-fit: contain;
+}
+
+.ieeeIcon {
+  color: var(--text-3);
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.ieeeCard:hover .ieeeIcon {
+  color: var(--amber);
+}
+
+/* ── 2. Recognition Row ───────────────────────── */
+.recognition {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5) var(--sp-6);
+  margin-bottom: var(--sp-8);
+}
+
+.recIcon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.recText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recTitle {
+  font: 600 var(--text-base) / 1.3 var(--font-body);
+  color: var(--text-1);
+}
+
+.recOrg {
+  font: 400 var(--text-sm) / 1.4 var(--font-body);
+  color: var(--text-2);
+}
+
+/* ── 3. Certifications Grid ───────────────────── */
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gap);
+}
+
+.certCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast) var(--ease-out-expo),
+    transform    var(--duration-fast) var(--ease-out-expo);
+}
+
+.certCard:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.certLogo {
+  height: 140px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+}
+
+.certLogo :global(.image-slot) {
+  object-fit: contain;
+  height: 100%;
+}
+
+.certContent {
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.certTitle {
+  font: 600 var(--text-base) / 1.3 var(--font-body);
+  color: var(--text-1);
+}
+
+.certIssuer {
+  font: 400 var(--text-sm) / 1.4 var(--font-body);
+  color: var(--text-2);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 900px) {
+  .certGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .ieeeCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--sp-5);
+  }
+
+  .ieeeLogo {
+    display: none; /* Hide logo on small screens for space */
+  }
+
+  .ieeeIcon {
+    position: absolute;
+    top: var(--sp-5);
+    right: var(--sp-5);
+  }
+
+  .certGrid {
+    grid-template-columns: 1fr;
+  }
+}

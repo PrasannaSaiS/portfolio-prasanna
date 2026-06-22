@@ -1,0 +1,240 @@
+/* ═══════════════════════════════════════════════
+   Nav.module.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Base nav ─────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 64px;
+  transition:
+    background-color var(--duration-mid) var(--ease-out-expo),
+    border-color     var(--duration-mid) var(--ease-out-expo),
+    transform        var(--duration-mid) var(--ease-out-expo);
+  border-bottom: 1px solid transparent;
+}
+
+/* ── Scrolled state — frosted glass ───────────── */
+.scrolled {
+  background-color: rgba(8, 8, 16, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom-color: var(--border);
+}
+
+/* ── Hidden on scroll-down ────────────────────── */
+.hidden {
+  transform: translateY(-100%);
+}
+
+/* ── Inner layout ─────────────────────────────── */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  height: 100%;
+}
+
+/* ── Logo ─────────────────────────────────────── */
+.logo {
+  font: 800 20px / 1 var(--font-display);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logoAccent {
+  color: var(--accent);
+}
+
+/* ── Desktop nav links ────────────────────────── */
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.link {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: 500 var(--text-sm) / 1 var(--font-body);
+  color: var(--text-2);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+  transition:
+    color            var(--duration-fast) var(--ease-out-expo),
+    background-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transform: translateX(-50%);
+  transition: width var(--duration-mid) var(--ease-out-expo);
+}
+
+.link:hover {
+  color: var(--text-1);
+  background-color: var(--bg-elevated);
+}
+
+.linkActive {
+  color: var(--text-1);
+}
+
+.linkActive::after {
+  width: calc(100% - var(--sp-6));
+}
+
+/* ── Resume button ────────────────────────────── */
+.resumeBtn {
+  flex-shrink: 0;
+  font: 500 var(--text-sm) / 1 var(--font-body);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  padding: 8px 20px;
+  transition:
+    background-color var(--duration-fast) var(--ease-out-expo),
+    color            var(--duration-fast) var(--ease-out-expo);
+}
+
+.resumeBtn:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* ── Hamburger (mobile only) ──────────────────── */
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-1);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.hamburger:hover {
+  background-color: var(--bg-elevated);
+}
+
+/* ── Mobile overlay ───────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(8, 8, 16, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-7);
+}
+
+.overlayClose {
+  position: absolute;
+  top: 20px;
+  right: var(--gutter);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-2);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.overlayClose:hover {
+  color: var(--text-1);
+}
+
+.overlayLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+}
+
+.overlayLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: 700 2rem / 1 var(--font-display);
+  color: var(--text-2);
+  letter-spacing: -0.02em;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+  padding: var(--sp-2) var(--sp-5);
+}
+
+.overlayLink:hover {
+  color: var(--text-1);
+}
+
+.overlayResume {
+  display: inline-block;
+  font: 700 2rem / 1 var(--font-display);
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  padding: var(--sp-2) var(--sp-5);
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.overlayResume:hover {
+  opacity: 0.75;
+}
+
+.overlayFooter {
+  position: absolute;
+  bottom: var(--sp-7);
+  font: 400 var(--text-sm) / 1 var(--font-mono);
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 768px) {
+  .nav {
+    height: 56px;
+  }
+
+  .links,
+  .resumeBtn {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
