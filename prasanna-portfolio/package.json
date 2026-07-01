@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development"
+  },
   "name": "prasanna-portfolio",
   "private": true,
   "version": "0.0.0",
