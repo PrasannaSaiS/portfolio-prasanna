@@ -24,7 +24,7 @@ Awwwards-level quality requires:
 
 ---
 
-## SECTION 1: PROJECT ARCHITECTURE
+## SECTION 1: PROJECT ARCHITECTURE:
 
 ### 1.1 Directory Structure
 
